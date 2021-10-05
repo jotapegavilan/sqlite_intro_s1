@@ -6,23 +6,48 @@ public class Producto {
     private String marca;
     private String modelo;
     private int stock;
+    private int precio;
+    private Categoria categoria;
+
 
     public Producto() {
     }
-
-    public Producto(String nombre, String marca, String modelo, int stock) {
+    // Crear nuevos productos
+    public Producto(String nombre, String marca, String modelo,
+                    int stock, int precio, Categoria categoria) {
         this.nombre = nombre;
         this.marca = marca;
         this.modelo = modelo;
         this.stock = stock;
+        this.precio = precio;
+        this.categoria = categoria;
     }
-
-    public Producto(int id, String nombre, String marca, String modelo, int stock) {
+    // Al obtener los productos -> desde la bd
+    public Producto(int id, String nombre, String marca,
+                    String modelo, int stock, int precio, Categoria categoria) {
         this.id = id;
         this.nombre = nombre;
         this.marca = marca;
         this.modelo = modelo;
         this.stock = stock;
+        this.precio = precio;
+        this.categoria = categoria;
+    }
+
+    public Categoria getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
+    }
+
+    public int getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(int precio) {
+        this.precio = precio;
     }
 
     public int getId() {
@@ -65,6 +90,8 @@ public class Producto {
         this.stock = stock;
     }
 
+    // siempre que necesitemos cargar un spinner
+    // siempre crear el tostring -> pruebas sobre mis objetos
     @Override
     public String toString() {
         return this.nombre + " - "+ this.marca;

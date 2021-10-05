@@ -8,8 +8,9 @@ import androidx.annotation.Nullable;
 
 public class DbHelper extends SQLiteOpenHelper {
     public static final String DB_NAME = "tiendaBD";
-    public static final int DB_VERSION = 1;
+    public static final int DB_VERSION = 3;
     public static final String TABLE_PRODUCTOS= "productos";
+    public static final String TABLE_CATEGORIAS = "categorias";
 
 
     public DbHelper(@Nullable Context context) {
@@ -19,12 +20,19 @@ public class DbHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         // crear las tablas
+        sqLiteDatabase.execSQL("CREATE TABLE "+TABLE_CATEGORIAS+" ("+
+                "id INTEGER PRIMARY KEY AUTOINCREMENT,"+
+                "nombre TEXT NOT NULL)");
+
         sqLiteDatabase.execSQL("CREATE TABLE "+TABLE_PRODUCTOS+" ("+
                 "id INTEGER PRIMARY KEY AUTOINCREMENT,"+
                 "nombre TEXT NOT NULL,"+
                 "marca TEXT NOT NULL,"+
                 "modelo TEXT NOT NULL,"+
-                "stock INTEGER NOT NULL )");
+                "stock INTEGER NOT NULL,"+
+                "precio INTEGER NOT NULL,"+
+                "categoria INTEGER NOT NULL,"+
+                "FOREIGN KEY (categoria) REFERENCES categorias(id))");
 
     }
 
@@ -32,6 +40,7 @@ public class DbHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
         //se llama cuando hay nueva versión de la base de datos
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS "+TABLE_PRODUCTOS);
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS "+TABLE_CATEGORIAS);
         onCreate(sqLiteDatabase);
     }
 }

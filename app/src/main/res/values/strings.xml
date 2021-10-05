@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">SQLiteApp</string>
+
+    <string name="lblTituloCat">Nueva categoria</string>
+    <string name="hintNombreCat">Nombre categoria</string>
+    <string name="btnCat">Guardar</string>
+
+    <string name="lblTituloPro">Nuevo producto</string>
+    <string name="hintNombrePro">Nombre del producto</string>
+    <string name="hintMarcaPro">Marca del producto</string>
+    <string name="hintModeloPro">Modelo del producto</string>
+    <string name="hintPrecioPro">Precio del producto</string>
+    <string name="hintStockPro">Stock del producto</string>
+    <string name="lblCategoria">Categoria</string>
+    <string name="btnPro">Guardar</string>
+
 </resources>
