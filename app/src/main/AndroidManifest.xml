@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SQLiteApp">
-        <activity android:name=".FormProducto"></activity>
+        <activity android:name=".LoginActivity"></activity>
+        <activity android:name=".FormProducto" />
         <activity android:name=".FormCategoria" />
         <activity android:name=".MainActivity">
             <intent-filter>

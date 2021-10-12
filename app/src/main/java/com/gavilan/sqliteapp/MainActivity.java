@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         spinner = findViewById(R.id.spinner);
 
-        startActivity(new Intent(this, FormProducto.class));
+        startActivity(new Intent(this, LoginActivity.class));
 
         DbProducto db = new DbProducto(this);
 

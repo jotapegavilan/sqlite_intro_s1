@@ -15,6 +15,8 @@ import com.gavilan.sqliteapp.models.Producto;
 import com.gavilan.sqliteapp.sqlite.DbCategoria;
 import com.gavilan.sqliteapp.sqlite.DbProducto;
 
+import java.util.ArrayList;
+
 public class FormProducto extends AppCompatActivity {
 
     EditText txtNombrePro, txtMarcaPro, txtModeloPro, txtPrecioPro, txtStockPro;
@@ -22,10 +24,13 @@ public class FormProducto extends AppCompatActivity {
     Button btnCat;
 
     public void cargarSpinner(){
-        DbCategoria db = new DbCategoria(this);
-        ArrayAdapter<Categoria> adapter = new ArrayAdapter<>(this,
-                android.R.layout.simple_spinner_dropdown_item, db.getCategorias() );
-        spCat.setAdapter(adapter);
+        DbCategoria db = new DbCategoria(this);// instancia
+        ArrayList<Categoria> categorias = db.getCategorias();
+        if(categorias != null ){ // si categorias no es vacío
+            ArrayAdapter<Categoria> adapter = new ArrayAdapter<>(this,
+                    android.R.layout.simple_spinner_dropdown_item, categorias  );
+            spCat.setAdapter(adapter);
+        }
     }
 
     @Override
